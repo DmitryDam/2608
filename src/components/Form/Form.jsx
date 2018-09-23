@@ -17,6 +17,7 @@ const Form = ({ deleteById }) => {
 	return (
 		<form className="SearchForm" onSubmit={onFormSubmit} ref={node => (form = node)}>
 			<input className="SearchForm__input" placeholder="Delete by ID..." type="text" ref={node => (input = node)} />
+			<button type="submit">submit</button>
 		</form>		
 	);
 }

@@ -28,3 +28,28 @@ export function deleteID(query) {
       })
       .catch(error => console.log('ERROR' + error));
   }
+
+    export function addUser(name,age) {
+    const newUsers = {
+      name: name,
+      age: age
+    };
+
+   return fetch('https://test-users-api.herokuapp.com/users/', {
+      method: 'POST',
+      body: JSON.stringify(newUsers),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then(response => {
+        if (response.ok) return response.json();
+        throw new Error('Error fetching data');
+      })
+      .then(data => {
+        console.log('post request',data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
